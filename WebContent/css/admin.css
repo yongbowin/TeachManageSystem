@@ -1,0 +1,183 @@
+/* 登陆和注册页面 */
+* {
+	margin: 0;
+	text-decoration: none;
+}
+
+body {
+	color: #fff;
+	min-height: 650px;
+	background: -webkit-linear-gradient(#854F95, #fff); /* Safari 5.1 - 6.0 */
+  	background: -o-linear-gradient(#854F95, #fff); /* Opera 11.1 - 12.0 */
+ 	background: -moz-linear-gradient(#854F95, #fff); /* Firefox 3.6 - 15 */
+ 	background: linear-gradient(#854F95, #fff); /* 标准的语法 */
+}
+
+.login-main {
+	
+	width: 330px;
+	height: 300px;
+	margin: 150px auto;
+}
+
+.wel-word {
+	
+	width: 330px;
+	height: 50px;
+	font-size: 1.5em;
+	font-family: "楷体";
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+}
+
+.login-content {
+	
+	width: 330px;
+	height: 220px;
+	border-radius: 15px;
+	border: 3px solid #fff;
+	padding-top: 40px;
+	font-family: "楷体";
+	background: #753B88;
+}
+
+.login-content .login-sub-sub input {
+	
+	width: 160px;
+	float: right;
+}
+
+input {
+	border: 1px solid #F39801;
+	border-radius: 5px;
+}
+
+.login-sub {
+	
+	width: 230px;
+	height: 190px;
+	margin: 0 auto;
+}
+
+.login-sub .login-sub-sub {
+	
+	width: 230px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.login-sub .login-sub-sub .user-name {width: 230px; height: 50px;float: left;}
+.login-sub .login-sub-sub .pass-word {width: 230px; height: 50px;float: left;}
+.login-sub .radio-btn {width: 230px; height: 50px;float: left;}
+.login-sub .sign-div {width: 160px;height: 25px;margin: 1px auto;}
+.login-sub .register-div {width: 160px;height: 25px;margin: 1px auto;margin-left: -10px;}
+.login-sub .sign-div .sign-div-login {width: 75px;height: 25px;float: left;}
+.login-sub .sign-div .sign-div-register {
+	
+	width: 65px;
+	height: 25px;
+	float: left;
+	margin-left: 20px;
+	font-size: 1em;
+	line-height: 25px;
+	text-align: center;
+}
+
+.login-sub .sign-div .sign-div-register a {
+	color: #818E9B;
+}
+
+/* 按钮 */
+.btn {
+	
+	width: 75px;
+	height: 25px;
+	color: #fff;
+	background: #F39801;
+	border-radius: 5px;
+	line-height: 25px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.btn a {
+	
+	color: #fff;
+}
+
+/* 打印错误错误信息 */
+.error-message {
+  color: red;
+  width: 90%;
+  height: 25px;
+  margin: 1px auto;
+}
+
+/* 小升初报名页面 */
+.sign-up-entrance {
+	
+	height: 30px;
+	float: right;
+	text-align: center;
+	line-height: 30px;
+	font-size: 1em;
+	font-family: "楷体";
+}
+
+.sign-up-entrance a {
+	color: #fff;
+}
+
+.sign-up-entrance-main {
+	
+	width: 350px;
+	height: 550px;
+	margin: 50px auto;
+}
+
+.sign_up_entrance-content {
+	
+	width: 350px;
+	height: 450px;
+	border-radius: 15px;
+	border: 3px solid #fff;
+	font-family: "楷体";
+	background: #753B88;
+}
+
+.sign-up-word {
+	
+	width: 350px;
+	height: 50px;
+	font-size: 1.5em;
+	font-family: "楷体";
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+}
+
+.sign-up-form {
+	
+	padding: 40px 40px 0 40px;
+}
+
+.sign-up-user-name {width: 270px;height: 50px;float: left;}
+.sign-up-radio-btn {width: 270px;height: 50px;float: left;}
+.sign-up-user-birthday {width: 270px;height: 50px;float: left;}
+.sign-up-user-phone {width: 270px;height: 50px;float: left;}
+.sign-up-user-graduate {width: 270px;height: 50px;float: left;}
+.sign-up-user-address {width: 270px;height: 50px;float: left;}
+.sign-up-pass-password {width: 270px;height: 50px;float: left;}
+.sign-up-register-div {width: 75px;height: 25px;float: left;}
+
+.apply-success-message {height: 25px;color: green;}
+.apply-error-message {height: 25px;color: red;}
+
+
+
+
+
+
+
+

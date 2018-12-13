@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="backstage" namespace="/" extends="default">
+        
+        <action name="b_index" class="com.backstage.BIndex">
+        	<result name="success">/jsp/backstage/index.jsp</result>
+        </action>
+        
+        <!-- 用户管理 -->
+        <action name="b_user_manage" class="com.backstage.BUser">
+        	<result name="success">/jsp/backstage/user_manage.jsp</result>
+        </action>
+        
+        <!-- 用户分类 -->
+        <action name="b_user_classify" class="com.backstage.BUserClassify" method="SearchClassifyUser">
+        </action>
+        
+        <!-- 学生 学籍信息 -->
+        <action name="get_student_detail" class="com.backstage.BUserClassify" method="GetStudentDetail">
+        	<result name="success">/jsp/backstage/student_detail.jsp</result>
+        </action>
+        
+        <!-- 管理员 删除 学生信息 -->
+        <action name="del_student" class="com.backstage.BUserClassify" method="DeleteStudent">
+            <result name="success" type="redirectAction">b_user_manage</result>
+        </action>
+        
+        <!-- 管理员修改 学生 学籍信息 -->
+        <action name="admin_edit_student_detail" class="com.backstage.BUserClassify" method="AdminEditStudentDetail">
+        	<result name="success">/jsp/backstage/student_detail.jsp</result>
+        </action>
+        
+        <!-- 老师 详细信息 -->
+        <action name="get_teacher_detail" class="com.backstage.BUserClassify" method="GetTeacherDetail">
+        	<result name="success">/jsp/backstage/teacher_detail.jsp</result>
+        </action>
+        
+        <!-- 管理员 删除 老师信息 -->
+        <action name="del_teacher" class="com.backstage.BUserClassify" method="DeleteTeacher">
+            <result name="success" type="redirectAction">b_user_manage</result>
+        </action>
+        
+        <!-- 管理员修改 老师信息 -->
+        <action name="admin_edit_teacher_detail" class="com.backstage.BUserClassify" method="AdminEditTeacherDetail">
+        	<result name="success">/jsp/backstage/teacher_detail.jsp</result>
+        </action>
+        
+        <!-- 报名管理 -->
+        <action name="b_apply_manage" class="com.backstage.BApplyEntrance">
+        	<result name="success">/jsp/backstage/apply_manage.jsp</result>
+        </action>
+        
+        <!-- 管理员 删除 小升初学生 信息 -->
+        <action name="del_apply_entrance" class="com.backstage.BApplyEntrance" method="DeleteApplyEntrance">
+            <result name="success" type="redirectAction">b_apply_manage</result>
+        </action>
+        
+        <!-- 获取 小升初学生 详细信息 -->
+        <action name="get_apply_entrance_detail" class="com.backstage.BApplyEntrance" method="GetApplyEntranceDetail">
+        	<result name="success">/jsp/backstage/apply_entrance_detail.jsp</result>
+        </action>
+        
+        <!-- 管理员修改 小升初学生 信息 -->
+        <action name="do_apply_entrance_detail" class="com.backstage.BApplyEntrance" method="AdminEditApplyEntranceDetail">
+        	<result name="success">/jsp/backstage/apply_entrance_detail.jsp</result>
+        </action>
+        
+        <!-- 留言管理 -->
+        <action name="b_msg_manage" class="com.backstage.BMessage">
+        	<result name="success">/jsp/backstage/message_manage.jsp</result>
+        </action>
+        
+        <!-- 管理员 删除 留言 -->
+        <action name="del_message" class="com.backstage.BMessage" method="DeleteMessage">
+            <result name="success" type="redirectAction">b_msg_manage</result>
+        </action>
+        
+        <!-- 获取 留言详细信息 -->
+        <action name="get_message_detail" class="com.backstage.BMessage" method="GetMessageDetail">
+        	<result name="success">/jsp/backstage/message_detail.jsp</result>
+        </action>
+        
+        <!-- 成绩管理 -->
+        <action name="b_score_manage" class="com.backstage.BScore">
+        	<result name="success">/jsp/backstage/score_manage.jsp</result>
+        </action>
+        
+        <!-- 添加学生成绩 -->
+        <action name="add_score" class="com.backstage.BScore">
+        	<result name="success">/jsp/backstage/add_score.jsp</result>
+        </action>
+        
+        <!-- 确定添加 学生成绩 -->
+        <action name="do_add_score" class="com.backstage.BScore" method="AddScore">
+        	<result name="success">/jsp/backstage/add_score.jsp</result>
+        </action>
+        
+        <!-- 取消录入 学生成绩 -->
+        <action name="cancel_add_score" class="com.backstage.BScore">
+        	<result name="success" type="redirectAction">b_score_manage</result>
+        </action>
+        
+        <!-- 删除 学生成绩 -->
+        <action name="del_student_score" class="com.backstage.BScore" method="DeleteStudentScore">
+            <result name="success" type="redirectAction">b_score_manage</result>
+        </action>
+        
+        <!-- 获取 学生成绩详细信息 -->
+        <action name="get_student_score_detail" class="com.backstage.BScore" method="GetStudentScoreDetail">
+        	<result name="success">/jsp/backstage/edit_student_score.jsp</result>
+        </action>
+        
+         <!-- 确定修改 学生成绩 -->
+        <action name="do_edit_student_score" class="com.backstage.BScore" method="DoEditStudentScore">
+        	<result name="success">/jsp/backstage/edit_student_score.jsp</result>
+        </action>
+        
+         <!-- 新闻公告 管理 -->
+        <action name="b_news_notice_rules" class="com.backstage.BNewsNoticeRules">
+        	<result name="success">/jsp/backstage/news_notice_rules_manage.jsp</result>
+        </action>
+        
+        <!-- 管理员获取 首页新闻 详细信息 -->
+        <action name="common_edit" class="com.backstage.BNewsNoticeRules" method="AdminGetCommonDetail">
+        	<result name="success">/jsp/backstage/edit_news_notice_rules.jsp</result>
+        </action>
+        
+        <!-- 管理员删除一条记录 -->
+        <action name="common_del" class="com.backstage.BNewsNoticeRules" method="DeleteNewsNoticeRules">
+        	<result name="success" type="redirectAction">b_news_notice_rules</result>
+        </action>
+        
+        <!-- 管理员获取 确认修改 首页新闻 详细信息 -->
+        <action name="do_edit_common" class="com.backstage.BNewsNoticeRules" method="DoAdminEditCommonDetail">
+        	<result name="success">/jsp/backstage/edit_news_notice_rules.jsp</result>
+        </action>
+        
+        <!-- 添加新闻等 -->
+        <action name="add_common_item" class="com.backstage.BNewsNoticeRules">
+        	<result name="success">/jsp/backstage/add_news_notice_rules.jsp</result>
+        </action>
+        
+        <!-- 确定 添加新闻等 -->
+        <action name="do_add_common" class="com.backstage.BNewsNoticeRules" method="DoAddNewsNoticeRules">
+        	<result name="success">/jsp/backstage/add_news_notice_rules.jsp</result>
+        </action>
+        
+        <!-- 教学资料 管理 -->
+        <action name="b_teach_res_manage" class="com.admin.TeachResource">
+        	<result name="success">/jsp/backstage/teach_res_manage.jsp</result>
+        </action>
+        
+        <!-- 删除文件 -->
+        <action name="bDelFile" class="com.admin.TeachResource" method="delFile">
+        	<result name="success" type="redirectAction">b_teach_res_manage</result>
+        </action>
+        
+        <!-- 作业管理 -->
+        <action name="b_hw_manage" class="com.backstage.BHomework">
+        	<result name="success">/jsp/backstage/homework_manage.jsp</result>
+        </action>
+        
+        <!-- 管理员 删除 布置的作业 -->
+        <action name="bDelHomework" class="com.admin.TeachResource" method="delArrangeHomework">
+        	<result name="success" type="redirectAction">b_hw_manage</result>
+        </action>
+        
+        <!-- 管理员 查看 布置的作业详情 -->
+        <action name="bHomeworkDetail" class="com.backstage.BHomework" method="getHomeworkDetail">
+        	<result name="success">/jsp/backstage/homework_detail.jsp</result>
+        </action>
+        
+        <!-- 评教管理 -->
+        <action name="b_evaluation_manage" class="com.backstage.BEvaluation">
+        	<result name="success">/jsp/backstage/evaluation_manage.jsp</result>
+        </action>
+        
+        <!-- 管理员后台删除 某老师的评教记录 -->
+        <action name="b_del_evalu" class="com.backstage.BEvaluation" method="BDelEvalu">
+        	<result name="success" type="redirectAction">b_evaluation_manage</result>
+        </action>
+        
+        <!-- 管理员审核  拒绝 小升初报名 -->
+        <action name="refuse_apply_in" class="com.backstage.CheckApply" method="RefuseApplyIn">
+        	<result name="success" type="redirectAction">b_apply_manage</result>
+        </action>
+        
+        <!-- 管理员审核  通过 小升初报名 -->
+        <action name="pass_apply_in" class="com.backstage.CheckApply" method="PassApplyIn">
+        	<result name="success" type="redirectAction">b_apply_manage</result>
+        </action>
+        
+        <!-- 小升初报名 审核结果 -->
+        <action name="check_result_entrance" class="com.backstage.CheckApply" method="checkResultEntrance">
+        	<result name="success">/jsp/admin/check_result.jsp</result>
+        </action>
+        
+        <!-- 小升初报名 结果 -->
+        <action name="check_result_entr" class="com.backstage.CheckApply" method="checkResultEntr">
+        </action>
+        
+    </package>
+</struts>

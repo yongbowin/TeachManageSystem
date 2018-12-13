@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="admin" namespace="/" extends="default">
+        
+        <action name="login" class="com.admin.Login">
+        	<result name="success">/jsp/admin/login.jsp</result>
+        </action>
+        
+        <action name="do_login" class="com.admin.Login" method="DoLogin">
+        	<result name="success" type="redirectAction">index</result>
+        	<result name="error">/jsp/admin/login.jsp</result>
+        	<result name="back_index">/jsp/backstage/index.jsp</result>
+        </action>
+        
+        <action name="index" class="com.backstage.BNewsNoticeRules">
+            <result name="success">/jsp/admin/index.jsp</result>
+        </action>
+		
+        <action name="register" class="com.admin.Register">
+            <result name="success">/jsp/admin/register.jsp</result>
+        </action>
+        
+        <action name="do_register" class="com.admin.Register" method="DoRegister">
+            <result name="success">/jsp/admin/login.jsp</result>
+        </action>
+        
+        <action name="message" class="com.admin.Message">
+            <result name="success">/jsp/admin/message.jsp</result>
+        </action>
+        
+        <action name="do_message" class="com.admin.Message" method="DoMessage">
+            <result name="success" type="redirectAction">message</result>
+        </action>
+        
+        <!-- 小升初报名入口 -->
+        <action name="sign_up_entrance" class="com.admin.ApplyEntrance">
+            <result name="success">/jsp/admin/apply_entrance.jsp</result>
+        </action>
+        
+        <!-- 小升初 确定报名-->
+        <action name="do_apply_entrance" class="com.admin.ApplyEntrance" method="DoApplyEntrance">
+            <result name="success">/jsp/admin/apply_entrance.jsp</result>
+        </action>
+        
+        <!-- 学生学籍 -->
+        <action name="student_school_detail" class="com.admin.StudentSchoolDetail">
+            <result name="success">/jsp/admin/student_school_detail.jsp</result>
+        </action>
+        
+        <!-- 修改 学生学籍 -->
+        <action name="edit_student_school_detail" class="com.admin.StudentSchoolDetail">
+            <result name="success">/jsp/admin/edit_student_school_detail.jsp</result>
+        </action>
+        
+        <!-- 确认修改 学生学籍 -->
+        <action name="do_edit_student_school_detail" class="com.backstage.BUserClassify" 
+        	method="AdminEditStudentDetail">
+            <result name="success">/jsp/admin/edit_student_school_detail.jsp</result>
+        </action>
+        
+        <!-- 成绩管理 -->
+        <action name="check_score" class="com.admin.Score">
+            <result name="success">/jsp/admin/student_score.jsp</result>
+        </action>
+        
+        <!-- 老师查询学生成绩 年级分类 -->
+        <action name="grade_classify" class="com.admin.ScoreClassify" method="SearchClassifyUserGrade">
+        </action>
+        
+        <!-- 老师查询学生成绩 提交申请 -->
+        <action name="search_grade_classify" class="com.admin.ScoreClassify">
+        	<result name="success">/jsp/admin/student_score.jsp</result>
+        </action>
+        
+        <!-- 学生评教 -->
+        <action name="student_evaluation" class="com.admin.SEvaluation">
+            <result name="success">/jsp/admin/evaluation_list.jsp</result>
+        </action>
+        
+        <!-- 学生 开始评教 -->
+        <action name="start_evaluation" class="com.admin.SEvaluation">
+            <result name="success">/jsp/admin/evaluation_detail.jsp</result>
+        </action>
+        
+        <!-- 提交 评教结果 -->
+        <action name="do_evaluation" class="com.admin.SEvaluation" method="DoEvaluation">
+            <result name="success" type="redirectAction">student_evaluation</result>
+            <result name="error">/jsp/admin/evaluation_detail.jsp</result>
+        </action>
+        
+        <!-- 检查该生对哪些老师进行了评教 -->
+        <action name="check_evalua_status" class="com.admin.SEvaluation" method="CheckEvaluaTionStatus">
+        </action>
+        
+        <!-- 教师查看评教结果 -->
+        <action name="teacher_check_evaluation" class="com.admin.SEvaluation" method="TeacherCheckEvaluation">
+            <result name="success">/jsp/admin/evaluation_detail.jsp</result>
+        </action>
+        
+        <!-- 学校概况 -->
+        <action name="school_introduction" class="com.admin.Index">
+            <result name="success">/jsp/admin/school_intro.jsp</result>
+        </action>
+        
+        <!-- index页面ajax获取文章的详细信息 -->
+        <action name="get_index_common_detail" class="com.admin.NewsNoticeRules">
+        	<result name="success">/jsp/admin/index_news_common.jsp</result>
+        </action>
+        
+        <!-- 教学资料页面 -->
+        <action name="teach_res" class="com.admin.TeachResource">
+        	<result name="success">/jsp/admin/teach_resource.jsp</result>
+        </action>
+        
+        <!-- 搜索后 的教学资料页面 -->
+        <!-- <action name="search_teach_res" class="com.admin.TeachResource" method="searchHw">
+        	<result name="success">/jsp/admin/teach_resource.jsp</result>
+        </action> -->
+        
+        <!-- 上传文件 -->
+        <action name="do_add_file" class="com.admin.TeachResource" method="DoUpFile">
+        	<result name="success" type="redirectAction">teach_res</result>
+        </action>
+        
+        <!-- 删除文件 -->
+        <action name="delFile" class="com.admin.TeachResource" method="delFile">
+        	<result name="success" type="redirectAction">teach_res</result>
+        </action>
+        
+        <!-- 老师 布置作业 -->
+        <action name="arrange_homework" class="com.admin.TeachResource" method="ArrangeHomework">
+        	<result name="success" type="redirectAction">teach_res</result>
+        </action>
+        
+        <!-- 老师 删除 布置的作业 -->
+        <action name="delHomework" class="com.admin.TeachResource" method="delArrangeHomework">
+        	<result name="success" type="redirectAction">teach_res</result>
+        </action>
+        
+        <!-- 学生 搜索 布置的作业 -->
+        <action name="search_hw" class="com.admin.TeachResource" method="searchHw">
+        </action>
+        
+        <!-- 题库系统 -->
+        <action name="question_system" class="com.admin.Question">
+        	<result name="success">/jsp/admin/question_system.jsp</result>
+        </action>
+        
+        <!-- 题库上传 -->
+        <action name="question_up" class="com.admin.Question" method="questionUp">
+        	<result name="success" type="redirectAction">question_system</result>
+        </action>
+        
+        <!-- 教师 删除 某道题 -->
+        <action name="delQuestion" class="com.admin.Question" method="deleteQuestion">
+        	<result name="success" type="redirectAction">question_system</result>
+        </action>
+        
+        <!-- 教师 编辑 某道题 -->
+        <action name="editQuestion" class="com.admin.Question" method="editQuestion">
+        	<result name="success">/jsp/admin/question_system.jsp</result>
+        </action>
+        
+        <!-- 教师 提交 编辑 某道题 -->
+        <action name="doEditQuestion" class="com.admin.Question" method="doEditQuestion">
+        	<result name="success" type="redirectAction">question_system</result>
+        </action>
+        
+        <!-- 教师 生成题库 -->
+        <action name="question_list_build" class="com.admin.Question" method="questionListBuild">
+        	<result name="success">/jsp/admin/question_system.jsp</result>
+        </action>
+        
+        <!-- 教师 获取试卷的详细信息 -->
+        <action name="getQuestionListDetail" class="com.admin.Question" method="getQuestionListDetailPage">
+        	<!-- <result name="success">/jsp/admin/test_paper.jsp</result> -->
+        	<result name="success">/jsp/admin/question_system.jsp</result>
+        	<!-- <result name="success" type="redirectAction">question_system</result> -->
+        </action>
+        
+        <!-- 学生获取作业的详细信息 -->
+        <action name="getHWDetail" class="com.admin.TeachResource" method="StuGetHWDetail">
+        	<result name="success">/jsp/admin/homework_detail.jsp</result>
+        </action>
+        
+        <!-- 学生 提交作业 -->
+        <action name="hw_submit" class="com.admin.TeachResource" method="hwSubmit">
+        	<result name="success" type="redirectAction">teach_res</result>
+        </action>
+        
+        <!-- 下载文件 -->
+        <!-- <action name="downFileRes" class="com.admin.DownLoadAction" method="downloadFile">  
+			<param name="filePath"></param>
+            <result type="stream" name="success">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${downloadChineseFileName }"</param>
+                <param name="inputName">downloadFile</param>  
+                <param name="bufferSize">409600</param>  
+            </result>  
+        </action>  --> 
+        
+        <action name="downFileRes" class="com.admin.DownLoadAction">
+			<result name="success" type="stream">
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">409600</param>
+			</result>
+		</action>
+        
+    </package>
+</struts>
